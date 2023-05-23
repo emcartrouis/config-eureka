@@ -9,10 +9,18 @@ eureka:
       default-zone: http://localhost:8761/eureka
   instance:
     hostname: localhost
-
+    
 spring:
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+              allowedOrigins: "*"
+              allowedMethods: "*"
+              allowedHeaders: "*"
       discovery:
         locator:
           enabled: true
@@ -43,12 +51,4 @@ spring:
           uri: lb://auth-service
           predicates:
             - Path=/auth/**
-            
-    globalcors:
-      corsConfigurations:
-        '[/**]':
-          allowedOrigins: "http://localhost:4200"
-          allowedMethods: "GET, POST, PUT, DELETE"
-          allowedHeaders: "Authorization, Content-Type"
-          allowCredentials: true
-          maxAge: 3600
+     
