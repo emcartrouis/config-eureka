@@ -29,6 +29,10 @@ spring:
           uri: lb://comun-service
           predicates:
             - Path=/api/service/comun/**
+         - id: ecommerce-service
+          uri: lb://ecommerce-service
+          predicates:
+            - Path=/api/service/ecommerce/**    
         - id: catalogo-service
           uri: lb://catalogo-service
           predicates:
@@ -50,7 +54,7 @@ spring:
         - id: archivo-service
           uri: lb://archivo-service
           predicates:
-            - Path=/archivo/**
+            - Path=/api/service/archivo/**
         - id: reporte-service
           uri: lb://reporte-service
           predicates:
