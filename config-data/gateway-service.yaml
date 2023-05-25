@@ -55,7 +55,7 @@ spring:
           uri: lb://reporte-service
           predicates:
             - Path=/reporte/**
-         filters:
+          filters:
             - AuthFilter
         - id: auth-service
           uri: lb://auth-service
