@@ -25,6 +25,10 @@ spring:
         locator:
           enabled: true
       routes:
+        - id: comun-service
+          uri: lb://comun-service
+          predicates:
+            - Path=/api/service/comun/**
         - id: catalogo-service
           uri: lb://catalogo-service
           predicates:
@@ -35,10 +39,14 @@ spring:
           uri: lb://inventario-service
           predicates:
             - Path=/api/service/inventario/**
+          filters:
+            - AuthFilter
         - id: venta-service
           uri: lb://venta-service
           predicates:
             - Path=/venta/**
+          filters:
+            - AuthFilter  
         - id: archivo-service
           uri: lb://archivo-service
           predicates:
@@ -47,6 +55,8 @@ spring:
           uri: lb://reporte-service
           predicates:
             - Path=/reporte/**
+         filters:
+            - AuthFilter
         - id: auth-service
           uri: lb://auth-service
           predicates:
