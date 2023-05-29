@@ -55,6 +55,8 @@ spring:
           uri: lb://archivo-service
           predicates:
             - Path=/api/service/archivo/**
+          filters:
+            - AuthFilter
         - id: reporte-service
           uri: lb://reporte-service
           predicates:
