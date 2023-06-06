@@ -29,6 +29,12 @@ spring:
           uri: lb://comun-service
           predicates:
             - Path=/api/service/comun/**
+         - id: inventario-service
+          uri: lb://inventario-service
+          predicates:
+            - Path=/api/service/inventario/**
+          filters:
+             - AuthFilter    
         - id: ecommerce-service
           uri: lb://ecommerce-service
           predicates:
