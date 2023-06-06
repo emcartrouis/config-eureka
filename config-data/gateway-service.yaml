@@ -33,11 +33,8 @@ spring:
           uri: lb://ecommerce-service
           predicates:
             - Path=/api/service/ecommerce/**
-            - Path=/api/service/ecommerce/carrito/**
           filters:
-            - Name: AuthFilter
-              Args:
-                excludedPatterns: "/api/service/ecommerce/carrito/**"            
+             - AuthFilter
         - id: catalogo-service
           uri: lb://catalogo-service
           predicates:
