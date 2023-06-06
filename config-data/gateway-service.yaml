@@ -34,8 +34,6 @@ spring:
           predicates:
             - Path=/api/service/ecommerce/**
             - Path=/api/service/ecommerce/carrito/**
-          predicates:
-            - Path=/api/service/ecommerce/**
           filters:
             - Name: AuthFilter
               Args:
